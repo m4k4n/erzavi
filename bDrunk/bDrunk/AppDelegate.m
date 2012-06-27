@@ -10,7 +10,7 @@
 
 @implementation AppDelegate
 
-@synthesize window = _window, infobtn;
+@synthesize window = _window, infobtn, onOffSwitch;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
