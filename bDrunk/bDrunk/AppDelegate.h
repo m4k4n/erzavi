@@ -12,8 +12,10 @@
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *infobtn;
-@property (strong, nonatomic) IBOutlet UISwitch *onOffSwitch;
+@property (strong, nonatomic) IBOutlet UIButton *adressbuchBTN;
+
 
 -(IBAction) showInfo:(id) sender;
+-(IBAction) kopiereAdressbuch:(id) sender;
 
 @end

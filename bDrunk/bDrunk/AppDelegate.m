@@ -6,11 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <AddressBook/AddressBook.h>
 #import "AppDelegate.h"
 
 @implementation AppDelegate
 
-@synthesize window = _window, infobtn, onOffSwitch;
+@synthesize window = _window, infobtn, adressbuchBTN;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,7 +24,7 @@
 //Eigener Code
 
 -(IBAction) showInfo:(id) sender {
-    NSLog(@"button pressed");
+    NSLog(@"Infobutton pressed");
     // ein neuer Alert Dialog 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Kurzanleitung" 
                                                     message:@"Hier kommt eine kurze Anleitung rein. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." 
@@ -36,6 +37,24 @@
     
     // der Anwender hat an dieser Stelle den Dialog bestätigt, 
     // somit können wir ihn aus dem Speicher entfernen.
+}
+
+-(IBAction) kopiereAdressbuch:(id) sender {
+    NSLog(@"Adressbuchbutton pressed");
+    
+    ABAddressBookRef addressBook = ABAddressBookCreate( );
+    CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople( addressBook );
+    CFIndex nPeople = ABAddressBookGetPersonCount( addressBook );
+    
+    for ( int i = 0; i < nPeople; i++ )
+    {
+        ABRecordRef ref = CFArrayGetValueAtIndex( allPeople, i );
+        NSLog(@"Eintrag: ");
+        NSString *displayName = (__bridge NSString *)ABRecordCopyCompositeName(ref);
+        NSLog( @"%@", displayName);
+        
+    }
+    
 }
 
 
