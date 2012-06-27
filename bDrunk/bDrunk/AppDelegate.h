@@ -11,5 +11,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *infobtn;
+
+-(IBAction) showInfo:(id) sender;
 
 @end

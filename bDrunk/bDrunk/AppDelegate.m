@@ -10,13 +10,35 @@
 
 @implementation AppDelegate
 
-@synthesize window = _window;
+@synthesize window = _window, infobtn;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     return YES;
+    
 }
+
+
+//Eigener Code
+
+-(IBAction) showInfo:(id) sender {
+    NSLog(@"button pressed");
+    // ein neuer Alert Dialog 
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Kurzanleitung" 
+                                                    message:@"Hier kommt eine kurze Anleitung rein. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." 
+                                                   delegate:nil 
+                                          cancelButtonTitle:@"Verstanden!" 
+                                          otherButtonTitles:nil];
+    
+    // jetzt zeigen wir diesen auch
+    [alert show];
+    
+    // der Anwender hat an dieser Stelle den Dialog bestätigt, 
+    // somit können wir ihn aus dem Speicher entfernen.
+}
+
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
